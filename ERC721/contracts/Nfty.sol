@@ -6,10 +6,10 @@ import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
 
-contract NFTY is ERC721URIStorage {
+contract Nfty is ERC721URIStorage {
     using Counters for Counters.Counter;
     Counters.Counter private _tokenIds;
-    
+
     bool private revealed = false;
     string private revealUrl = "";
 
@@ -28,16 +28,21 @@ contract NFTY is ERC721URIStorage {
         return newItemId;
     }
 
-
-    function tokenURI(uint tokenId) public view virtual  override returns(string memory){
-          if(revealed ==true){
-              return super.tokenURI(tokenId);
-          }else{
-              return revealUrl;
-          }
+    function tokenURI(uint256 tokenId)
+        public
+        view
+        virtual
+        override
+        returns (string memory)
+    {
+        if (revealed == true) {
+            return super.tokenURI(tokenId);
+        } else {
+            return revealUrl;
+        }
     }
 
-    function revealCollection () public {
-         revealed = true;
+    function revealCollection() public {
+        revealed = true;
     }
 }
