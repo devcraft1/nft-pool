@@ -14,16 +14,16 @@ async function main() {
   // await hre.run('compile');
 
   // We get the contract to deploy
-  // const Greeter = await hre.ethers.getContractFactory("Greeter");
-  // const greeter = await Greeter.deploy("Hello, Hardhat!");
+  const Greeter = await hre.ethers.getContractFactory("Greeter");
+  const greeter = await Greeter.deploy("Hello, Hardhat!");
 
   const Nfty = await hre.ethers.getContractFactory("Nfty")
   const nfty = await Nfty.deploy();
 
-  // await greeter.deployed();
+  await greeter.deployed();
   await nfty.deployed();
 
-  // console.log("Greeter deployed to:", greeter.address);
+  console.log("Greeter deployed to:", greeter.address);
   console.log('Nfty deployed to:', nfty.address);
 }
 

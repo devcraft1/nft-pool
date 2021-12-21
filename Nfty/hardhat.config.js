@@ -11,7 +11,6 @@ task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
 
 const alchemyApiKey = process.env.ALCHEMY_API_KEY;
 const privateKey = process.env.PRIVATE_KEY;
-const etherscanKey = process.env.ETHERSCAN_KEY;
 
 module.exports = {
   solidity: "0.8.0",
